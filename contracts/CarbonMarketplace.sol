@@ -48,7 +48,7 @@ contract CarbonMarketplace is ERC20 {
     uint256 public approvalsRequired;
 
     Project[] private projects;
-    mapping(uint256 => mapping(address => bool)) private approved;
+    mapping(uint256 => mapping(address => bool)) public approved;
     uint256 public totalProjects;
     uint256 public acceptedProjects;
 
