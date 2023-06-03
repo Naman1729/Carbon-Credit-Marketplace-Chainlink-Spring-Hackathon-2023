@@ -34,6 +34,7 @@ contract CarbonMarketplace is ERC20 {
         address author;
         string projectName;
         string projectLink;
+        string zipCode;
         bool accepted;
         uint256 approvals;
         address authorCampaignContract;
@@ -47,9 +48,9 @@ contract CarbonMarketplace is ERC20 {
     uint256 public approvalsRequired;
 
     Project[] private projects;
-    mapping(uint256 => mapping(address => bool)) approved;
-    uint256 private totalProjects;
-    uint256 private acceptedProjects;
+    mapping(uint256 => mapping(address => bool)) private approved;
+    uint256 public totalProjects;
+    uint256 public acceptedProjects;
 
     IEmissionFeeds public emissionFeeds;
     IWeatherFeeds public weatherFeeds;
@@ -125,7 +126,7 @@ contract CarbonMarketplace is ERC20 {
     }
 
 
-    function submitProposal(string memory projectName, string memory projectLink) external {
+    function submitProposal(string memory projectName, string memory projectLink, string memory pinCode, string memory countryCode) external {
         if (msg.sender != tx.origin) {
             revert CarbonMarketplace__invalidAuthor();
         }
@@ -137,6 +138,7 @@ contract CarbonMarketplace is ERC20 {
             msg.sender,
             projectName,
             projectLink,
+            string.concat(pinCode, ',', countryCode),
             false,
             0,
             address(0),
