@@ -17,6 +17,11 @@ Deployed Automated Consumer Contract at address on Polygon Mumbai Network:
 
 
 
+## Installing packages
+```bash
+  yarn install
+```
+
 ## Deployment
 
 - To deploy on hardhat network
@@ -105,7 +110,7 @@ It allows the admins to view proposals which are not yet deployed or approved by
 ```
 - projectId - The id of the project allocated when user submitted the proposal for project.
 
-
+‎ 
 ## User Campaign Contract
 This contract is dedicated for the project of user.
 Once the user proposal is verified on the marketplace contract, the admins will then deploy this userCampaign contract for the user's project.
