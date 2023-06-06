@@ -18,3 +18,5 @@ const verifyContract = async(contractAddress, args) => {
         }
     }
 }
+
+module.exports = { verifyContract }

@@ -1,5 +1,6 @@
 const { ethers, network } = require("hardhat")
 const { networkConfig, localNetworks } = require("../helper-hardhat-config.js")
+const { verifyContract } = require("../utils/contractVerification.js")
 require("dotenv").config()
 
 
@@ -35,6 +36,10 @@ module.exports = async({ deployments, getNamedAccounts }) => {
         log: true,
         args: args
     })
+
+    if (process.env.POLYGONSCAN_API_KEY && !localNetworks.includes(network.name)) {
+        await verifyContract(CarbonMarketplace.address, args)
+    }
 }
 
 module.exports.tags = ["main", "all"]
