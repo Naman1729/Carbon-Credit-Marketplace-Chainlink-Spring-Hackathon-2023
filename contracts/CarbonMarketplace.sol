@@ -6,7 +6,7 @@ import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 import "./UserCampaigns.sol";
 
 interface IEmissionFeeds {
-    function latestResponse() external returns (bytes memory);
+    function latestResponse() external view returns (bytes memory);
 }
 
 error CarbonMarketplace__invalidAdmin();

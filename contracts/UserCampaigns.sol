@@ -3,7 +3,7 @@
 pragma solidity ^0.8.18;
 
 interface IWeatherFeeds {
-    function latestResponse() external returns (bytes memory);
+    function latestResponse() external view returns (bytes memory);
 }
 
 error UserCampaign__notOwner();
